@@ -8,6 +8,7 @@
 #include "SoftwarePwm.hpp"
 //
 // Raspberry pico wave output test
+// 10bit wave table
 //
 const uint SYSTEM_CLOCK = 250'000'000;
 const uint SAMPLING_RATE = 32'000;
