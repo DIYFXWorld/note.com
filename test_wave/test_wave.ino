@@ -7,7 +7,7 @@
 #include "PicoUtil.hpp"
 #include "SoftwarePwm.hpp"
 //
-// Raspberry pico wave putput test
+// Raspberry pico wave output test
 //
 const uint SYSTEM_CLOCK = 250'000'000;
 const uint SAMPLING_RATE = 32'000;
