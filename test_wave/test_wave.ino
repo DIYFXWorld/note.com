@@ -31,8 +31,8 @@ SoftwarePwm oscPwm(SAMPLING_RATE);
 OscillatorBase *oscArray[5] = { &oscSin, &oscSaw, &oscTri, &oscSquare, &oscPwm };
 OscillatorBase *osc;
 
-int oscIndex;
-uint count;
+int oscIndex = 0;
+uint count = 0;
 
 void on_pwm_wrap() {
   intervalCallback.clearIrq();
