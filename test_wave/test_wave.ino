@@ -11,7 +11,7 @@
 // 10bit wave table
 //
 const uint SYSTEM_CLOCK = 250'000'000;
-const uint SAMPLING_RATE = 96'000;
+const uint SAMPLING_RATE = 100'000;
 const uint PWM_DAC_RESOLUTION = 1024;
 
 const uint PWM_OUTPUT_PIN = 2;
@@ -20,7 +20,7 @@ const uint DUMMY_INTERVAL_CALLBACK_PIN = 5;  // unused pin number
 PwmDac pwmDac(PWM_OUTPUT_PIN, PWM_DAC_RESOLUTION);
 IntervalCallback intervalCallback(DUMMY_INTERVAL_CALLBACK_PIN);
 
-Gpio gpio0(0);  // sampling rate output & core utilization rate
+Gpio gpio0(0);  // sampling output & core utilization rate
 
 Oscillator oscSin(WAVE_TABLE_SIN, SAMPLING_RATE);
 Oscillator oscSaw(WAVE_TABLE_SAW, SAMPLING_RATE);
