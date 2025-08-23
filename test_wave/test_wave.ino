@@ -31,7 +31,7 @@ SoftwarePwm oscPwm(SAMPLING_RATE);
 OscillatorBase *oscArray[5] = { &oscSin, &oscSaw, &oscTri, &oscSquare, &oscPwm };
 OscillatorBase *osc;
 
-int oscIndex = 0;
+int oscIndex;
 uint count;
 
 void on_pwm_wrap() {
