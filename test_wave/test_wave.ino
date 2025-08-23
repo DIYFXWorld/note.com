@@ -20,7 +20,7 @@ const uint DUMMY_INTERVAL_CALLBACK_PIN = 5;  // unused pin number
 PwmDac pwmDac(PWM_OUTPUT_PIN, PWM_DAC_RESOLUTION);
 IntervalCallback intervalCallback(DUMMY_INTERVAL_CALLBACK_PIN);
 
-Gpio gpio0(0);  // sampling rate output
+Gpio gpio0(0);  // sampling rate output & core utilization rate
 
 Oscillator oscSin(WAVE_TABLE_SIN, SAMPLING_RATE);
 Oscillator oscSaw(WAVE_TABLE_SAW, SAMPLING_RATE);
@@ -36,7 +36,7 @@ uint count;
 
 void on_pwm_wrap() {
   intervalCallback.clearIrq();
-  gpio0.set(HIGH);
+  gpio0.set(HIGH);  // sampling rate & core utilization rate
 
   if (osc)
     pwmDac.set(osc->get());
@@ -47,6 +47,8 @@ void on_pwm_wrap() {
     osc = oscArray[oscIndex];
     osc->setFreq(1000);
   }
+
+  gpio0.set(LOW); // sampling rate & core utilization rate
 }
 
 void setup() {
