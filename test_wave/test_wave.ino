@@ -11,7 +11,7 @@
 // 10bit wave table
 //
 const uint SYSTEM_CLOCK = 250'000'000;
-const uint SAMPLING_RATE = 32'000;
+const uint SAMPLING_RATE = 96'000;
 const uint PWM_DAC_RESOLUTION = 1024;
 
 const uint PWM_OUTPUT_PIN = 2;
@@ -29,7 +29,7 @@ Oscillator oscSquare(WAVE_TABLE_SQUARE, SAMPLING_RATE);
 SoftwarePwm oscPwm(SAMPLING_RATE);
 
 OscillatorBase *oscArray[5] = { &oscSin, &oscSaw, &oscTri, &oscSquare, &oscPwm };
-OscillatorBase *osc = &oscSin;
+OscillatorBase *osc;
 
 int oscIndex = 0;
 uint count;
@@ -37,15 +37,16 @@ uint count;
 void on_pwm_wrap() {
   intervalCallback.clearIrq();
   gpio0.set(HIGH);
-  pwmDac.set(osc->get());
 
+  if (osc)
+    pwmDac.set(osc->get());
+  
   if (++count == SAMPLING_RATE * 2) {
     count = 0;
     oscIndex = ++oscIndex % 5;
     osc = oscArray[oscIndex];
+    osc->setFreq(1000);
   }
-
-  gpio0.set(LOW);
 }
 
 void setup() {
