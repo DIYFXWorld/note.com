@@ -16,6 +16,7 @@ public:
       : fs(_fs), theta(0.f),
         thetaStep(0.f), table(tbl)
   {
+    setFreq(1000);
   }
 
   void setFreq(float Hz)
