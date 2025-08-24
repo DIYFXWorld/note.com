@@ -554,12 +554,12 @@
 		)
 		(uuid "b8dcb139-5347-4968-a952-762107bc7736")
 	)
-	(text "2"
+	(text "4(GP2)"
 		(exclude_from_sim no)
-		(at 127.762 89.408 0)
+		(at 123.698 88.9 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.905 1.905)
 				(thickness 0.1588)
 			)
 		)
