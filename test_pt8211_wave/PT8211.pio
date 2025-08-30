@@ -1,0 +1,24 @@
+.program PT8211
+.side_set 2
+                       //    WS
+                       //     |BCK
+.wrap_target           //     ||
+    pull               side 0b00    ; 32ビットデータ取得
+    set x, 15          side 0b01    ; 16カウント
+
+bitloop:
+    out pins, 1        side 0b00    ; データ送信
+    jmp x-- bitloop    side 0b01    ; ループ
+
+////////////////////////////////
+
+    set pins, 0        side 0b10    ; 出力をゼロリセット
+    set x, 15          side 0b11    ; 16カウント
+
+bitloop2:
+    out pins, 1        side 0b10    ; データ送信
+    jmp x-- bitloop2   side 0b11    ; ループ
+.wrap
+
+% c-sdk {
+%}
