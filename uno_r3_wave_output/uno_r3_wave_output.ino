@@ -39,7 +39,7 @@ void loop() {
   if(c == 3) osc = &oscTri;
   if(c == 4) osc = &oscSqu;
   // clang-format on
-  osc->setFreq(1234);
+  osc->setFreq(1000);
   c = ++c % 5;
   delay(3000);
 }
