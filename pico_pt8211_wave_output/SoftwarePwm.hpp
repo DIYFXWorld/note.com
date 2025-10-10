@@ -26,9 +26,9 @@ struct SoftwarePwm : public OscillatorBase
 
   int16_t get()
   {
+//    float lfo_value = sin(2.f * M_PI * lfo_phase);
     float lfo_value = table_sin(lfo_phase * 65535) / 32767.f;
 
-//    float lfo_value = sin(2.f * M_PI * lfo_phase);
     float duty_cycle = 0.5f + lfo_value * lfo_depth;
 
     // 3. PWM波形を生成

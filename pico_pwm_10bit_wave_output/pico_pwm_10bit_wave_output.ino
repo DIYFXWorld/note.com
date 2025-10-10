@@ -1,3 +1,7 @@
+//
+// RaspberryPico用
+// PWM 10ビット波形出力プログラム
+//
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include "IntervalCallback.hpp"

@@ -1,3 +1,8 @@
+//
+// RaspberryPico用
+// PT8211波形出力プログラム
+// PT8211 wave output
+//
 #include <Arduino.h>
 #include <stdio.h>
 #include "pico/stdlib.h"
