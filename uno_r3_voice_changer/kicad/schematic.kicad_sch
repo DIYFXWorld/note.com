@@ -755,7 +755,7 @@
 		)
 		(uuid "0c2573a1-25e4-430f-b059-5a5d5b4ec325")
 	)
-	(text "D2"
+	(text "D5"
 		(exclude_from_sim no)
 		(at 92.71 68.834 0)
 		(effects
@@ -795,7 +795,7 @@
 		)
 		(uuid "97cab1e1-adf9-4428-837a-e8aa34744018")
 	)
-	(text "D4"
+	(text "D6"
 		(exclude_from_sim no)
 		(at 106.68 68.834 0)
 		(effects
