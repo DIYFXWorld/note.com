@@ -1,5 +1,5 @@
 //
-// 重要:fixedライブラリが必要なのでArduinoIDEからインストールしてください
+// 重要:fixedライブラリが必要なのでArduinoIDEにインストールしてください
 // "The fixed library is required, so please install it in your Arduino IDE."
 //
 // Arduino Uno R3
@@ -11,7 +11,7 @@
 #include "Dac.hpp"
 #include "Oscillator.hpp"
 
-const int SAMPLING_RATE = 31250;  // sampling rate
+const int SAMPLING_RATE = 31250; // sampling rate
 
 Oscillator oscSin(WAVE_TABLE_SIN, SAMPLING_RATE);
 Oscillator oscTri(WAVE_TABLE_TRIANGLE, SAMPLING_RATE);
@@ -19,19 +19,22 @@ Oscillator oscSaw(WAVE_TABLE_SAW, SAMPLING_RATE);
 Oscillator oscSawRev(WAVE_TABLE_SAW_REV, SAMPLING_RATE);
 Oscillator oscSqu(WAVE_TABLE_SQUARE, SAMPLING_RATE);
 
-Oscillator* osc = &oscSin;
+Oscillator *osc = &oscSin;
 
 // この関数は31.25kHzで実行されます
-int16_t process() {
-  return osc->get();  // -32768...32767を返す
+int16_t process()
+{
+  return osc->get(); // -32768...32767を返す
 }
 
-void setup() {
+void setup()
+{
   setupDac();
 }
 
 int c = 0;
-void loop() {
+void loop()
+{
   // clang-format off
   if(c == 0) osc = &oscSin;
   if(c == 1) osc = &oscSaw;
