@@ -34,8 +34,6 @@ void setup() {
   pots1.begin();
 }
 
-int count = 0;
-
 void loop() {
   intervalOutPin.toggle();  // ピンをトグルさせて大雑把な時間を測る
 
@@ -43,12 +41,12 @@ void loop() {
   pots1.read();
 
   Serial.printf("%u %u %u %u %u %u %u %u\n",
-                mid0(avg0(pots0[0])) / 152,  // 100ステップへ変換
-                mid1(avg1(pots0[1])) / 160,  // 除数はコンデンサと抵抗によって変わるので
-                mid2(avg2(pots0[2])) / 178,  // 全て違う値になります
-                mid3(avg3(pots0[3])) / 154,
-                mid4(avg4(pots1[0])) / 168,
-                mid5(avg5(pots1[1])) / 140,
-                mid6(avg6(pots1[2])) / 153,
-                mid7(avg7(pots1[3])) / 145);
+                mid0(avg0(pots0[0])) / 122,  // 100ステップへ変換
+                mid1(avg1(pots0[1])) / 132,  // 除数はコンデンサと抵抗によって変わるので
+                mid2(avg2(pots0[2])) / 145,  // 全て違う値になります
+                mid3(avg3(pots0[3])) / 125,
+                mid4(avg4(pots1[0])) / 135,
+                mid5(avg5(pots1[1])) / 115,
+                mid6(avg6(pots1[2])) / 125,
+                mid7(avg7(pots1[3])) / 120);
 }
