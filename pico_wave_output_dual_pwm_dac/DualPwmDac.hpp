@@ -1,14 +1,15 @@
 #pragma once
 
-struct DualPwmDac {
-
+struct DualPwmDac
+{
   int pinHigh, pinLow;
   uint sliceNum;
 
   DualPwmDac(int pin_high, int pin_low)
-    : pinHigh(pin_high), pinLow(pin_low) {}
+      : pinHigh(pin_high), pinLow(pin_low) {}
 
-  void begin() {
+  void begin()
+  {
     gpio_set_function(pinHigh, GPIO_FUNC_PWM);
     gpio_set_function(pinLow, GPIO_FUNC_PWM);
 
@@ -19,7 +20,7 @@ struct DualPwmDac {
     pwm_init(sliceNum, &config, true);
   }
 
-  void set(int16_t x)  // -32768 <= x <= 32767
+  void set(int16_t x) // -32768 <= x <= 32767
   {
     uint16_t u = x + 32768;
     pwm_set_both_levels(sliceNum, (u >> 8) & 0xFF, u & 0xFF);

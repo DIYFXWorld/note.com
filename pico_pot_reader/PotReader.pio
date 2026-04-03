@@ -1,0 +1,13 @@
+.program PotReader
+
+    pull block          ; MAX_COUNTを受信 (ここで計測準備完了)
+    mov x, osr          ; xへセット
+    
+    set pindirs, 0      ; ここでPinを「入力」に切り替えた瞬間に充電が始まり、計測がスタートする
+loop:
+    jmp pin, done       ; Highになったら終了
+    jmp x--, loop       ; カウントダウン
+    
+done:
+    mov isr, x          ; 残りカウントをISRへ
+    push block          ; メインへ送る

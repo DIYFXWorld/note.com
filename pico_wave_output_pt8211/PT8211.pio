@@ -1,5 +1,5 @@
 .program PT8211
-.side_set 2
+.side_set 2                         ; サイドセットを2ビット使用
                        //    WS
                        //     |BCK
 .wrap_target           //     ||
